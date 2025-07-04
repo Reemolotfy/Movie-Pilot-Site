@@ -58,13 +58,13 @@ class LoginForm {
   }
 
   private login(user: User) {
-    // Replace this with actual login logic
+    
     console.log('Logging in:', user);
     alert('Login successful!');
   }
 }
 
-// Initialize when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
   new LoginForm();
 });

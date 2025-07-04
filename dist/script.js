@@ -37,12 +37,10 @@ class LoginForm {
         this.errorElement.textContent = message;
     }
     login(user) {
-        // Replace this with actual login logic
         console.log('Logging in:', user);
         alert('Login successful!');
     }
 }
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new LoginForm();
 });
