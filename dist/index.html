@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./output.css" rel="stylesheet" />
+  <link rel="icon" href="/images/vidstrip.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+  <title>Movie Pilot</title>
+  <style>
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen overflow-hidden">
+  <!-- Background elements same as before -->
+  <div class="absolute inset-0 bg-[url('/images/vidstrip.png')] bg-cover bg-center bg-no-repeat"></div>
+  <div class="absolute inset-0 bg-white/5"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col min-h-screen">
+    <header class="pt-12 px-4 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-800 mb-2 drop-shadow-lg">
+        Welcome to <span class="text-red-600">Movie Pilot</span>
+      </h1>
+      <div class="w-24 h-1 bg-red-500 mx-auto mt-4"></div>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center p-4">
+      <div class="bg-white/80 backdrop-blur-md border border-white rounded-xl shadow-xl p-8 w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-center mb-8 text-gray-800">
+          Login to your account
+        </h2>
+        
+        <!-- Error message container -->
+        <div id="error" class="mb-4 text-red-600 text-sm"></div>
+        
+        <form id="loginForm" class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium mb-2 text-gray-600">Email</label>
+            <input id="email" type="email" placeholder="you@example.com"
+              class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent transition">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2 text-gray-600">Password</label>
+            <input id="password" type="password" placeholder="••••••••"
+              class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent transition">
+          </div>
+          
+          <button type="submit"
+            class="w-full py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-all shadow-md hover:shadow-red-400/30">
+            Login
+          </button>
+        </form>
+        
+        <p class="text-center text-sm mt-6 text-gray-600">
+          Don't have an account? 
+          <a href="#" class="text-red-600 hover:text-red-500 underline transition">Register</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Include the TypeScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
