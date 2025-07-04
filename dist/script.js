@@ -3,8 +3,25 @@ class AuthSystem {
     constructor() {
         this.users = [];
         this.currentForm = 'login';
+        this.STORAGE_KEY = 'moviePilotUsers';
+        this.loadUsers();
         this.initForms();
         this.renderForm();
+    }
+    loadUsers() {
+        const storedUsers = localStorage.getItem(this.STORAGE_KEY);
+        if (storedUsers) {
+            try {
+                this.users = JSON.parse(storedUsers);
+            }
+            catch (e) {
+                console.error('Failed to parse stored users', e);
+                this.users = [];
+            }
+        }
+    }
+    saveUsers() {
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.users));
     }
     initForms() {
         var _a, _b;
@@ -117,7 +134,10 @@ class AuthSystem {
         const foundUser = this.users.find(u => u.email === user.email && u.password === user.password);
         if (foundUser) {
             alert('Login successful!');
-            // Redirect or do something after login
+            // Store the logged-in user in sessionStorage (temporary)
+            sessionStorage.setItem('currentUser', JSON.stringify({ email: user.email, name: foundUser.name }));
+            // Redirect to a new page or update UI
+            window.location.href = 'movies.html'; // Change this to your actual page
         }
         else {
             this.showError('Invalid email or password');
@@ -129,6 +149,7 @@ class AuthSystem {
             return;
         }
         this.users.push(user);
+        this.saveUsers();
         alert('Registration successful! Please login.');
         this.currentForm = 'login';
         this.renderForm();
